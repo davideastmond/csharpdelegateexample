@@ -34,27 +34,19 @@ example:
 
 ``` public event InfoReceived OnInfoReceived; // This will be subscribed to later ```
 
-### 4 a. Create a public method in your protocol whose arugments conform to the delegate method signature. In this public method, assign the desired fields / properties. This method is to be called at the exact time the event is to be raised and this is when the properties of the public protocol will be assigned.
+### 4 a. Create a public method in your protocol whose arguments conform to the delegate method signature. In this public method, assign the desired fields / properties. This method is to be called at the exact place in your code where you want to trigger the event. This is where the properties of the public protocol will be assigned.
 
-
-### 4 b. Subscribe to the event (from step 3) in the protocol using the += synatax. The event handler subsequently created needs no code.
-### 4 c. After subscribing, manually raise the event itself on the very next line. The arguments in the method in step 4a. should be used as arguments when manually raising the event itself.
+### 4 b. Manually raise the event itself. The arguments in the method in step 4-a should be used as arguments when manually raising the event itself.
 
 ```
 public void RaiseEvent(object sender, EventArgs e)
 {
-	// Assign properties
+	// Assign properties / fields
 	this.senderObject = sender;
 	this.pEventArgs = e;
-	OnInfoReceived += MyInfoProtocol_OnInfoReceived; // Subscribe to event
+	
 	OnInfoReceived(sender, e); // Manually raise the event
 
-}
-
-// Event method created after subscribing
-void MyInfoProtocol_OnInfoReceived (object sender, EventArgs e)
-{
-	// no code needed
 }
 ```
 
@@ -98,7 +90,7 @@ void delegate_info_OnInfoReceived (object sender, EventArgs e)
 
 ### 6 a. In preparing for the segue obtain a reference to the destination view controller, and using its delegate property (from step 5), subscribe to the event you created in step 3. An event handler will be created as normal.
 
-### 6 b. In the subscribed event method, here is where you can get the information that is delievered when the event is triggered.
+### 6 b. In the subscribed event method, here is where you can get the information that is delivered when the event is triggered.
 Example (In VC-1):
 ```
 public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
