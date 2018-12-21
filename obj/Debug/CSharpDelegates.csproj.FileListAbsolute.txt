@@ -1,0 +1,11 @@
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\obj\Debug\CSharpDelegates.csprojAssemblyReference.cache
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\obj\Debug\CSharpDelegates.Form1.resources
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\obj\Debug\CSharpDelegates.Properties.Resources.resources
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\obj\Debug\CSharpDelegates.secondForm.resources
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\obj\Debug\CSharpDelegates.csproj.GenerateResource.cache
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\obj\Debug\CSharpDelegates.csproj.CoreCompileInputs.cache
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\bin\Debug\CSharpDelegates.exe.config
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\bin\Debug\CSharpDelegates.exe
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\bin\Debug\CSharpDelegates.pdb
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\obj\Debug\CSharpDelegates.exe
+F:\Users\David\Source\Repos\CSharpDelegates\CSharpDelegates\obj\Debug\CSharpDelegates.pdb
