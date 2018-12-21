@@ -95,9 +95,41 @@ void delegate_info_OnInfoReceived (object sender, EventArgs e)
 
 ### 6. *For Xamarin.iOS:* In ViewController-1 (VC-1), implement the preprareForSegue delegate method. Ensure your segueIdentifiers match up and that the correct class is associated with the DestinationViewControllerProperty.
 
-### 6 a. In preparing for the segue obtain a reference to the destination view controller, and using its delegate property (from step 5), subscribe to the event you created in step 3.
+
+### 6 a. In preparing for the segue obtain a reference to the destination view controller, and using its delegate property (from step 5), subscribe to the event you created in step 3. An event handler will be created as normal.
 
 ### 6 b. In the subscribed event method, here is where you can get the information that is delievered when the event is triggered.
+Example (In VC-1):
+```
+public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+{
+	base.PrepareForSegue(segue, sender);
+	
+	if (segue.Identifier == "showSetupJournal")
+        {
+		// Obtain a reference to VC-2
+        	setupViewController setScreen = segue.DestinationViewController as setupViewController; 
+                setScreen.delegate_data.OnReceivedRegistrationData += Delegate_Data_OnReceivedRegistrationData; // subscribe to the event
 
-### 7. In VC-2, use its delegate property (from step 5) to call the method that triggers the actual event (the method was created in step 4 a) whenever you need to - such as a button click or whatever.
+        }
+}
+void Delegate_Data_OnReceivedRegistrationData(object sender, EventArgs e)
+{
+	// The event handler. Do something with the data you get back here
+}
+```
 
+
+### 7. In VC-2, use its delegate field (from step 5) to call the method that triggers the actual event (the method was created in step 4 a) whenever the event to be raised.
+In this case, my event is triggered when user clicks the OK button on the view / form. I want that data passed back to VC-1
+Example (in VC-2):
+```
+partial void buttonOK_Click(UIButton sender)
+{
+	// Create an instance of your EventArgs
+	EventArgs myArgs =  new EventArgs();
+	
+	// Trigger the event by calling the RaiseEvent method on your delegate field
+	delegate_info.RaiseEvent(this, myArgs);
+}
+```
